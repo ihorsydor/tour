@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  h1= title
+
+  if errors.errors !== undefined
+    each message in errors.errors
+      p=message
+  label Wybierz ilość dni impresy
+  select Wybierz ilość dni
+      option 1
+      option 2
+
+  form(method='post') 
+    p
+      label Nazwa imprezy
+      input(type='text' name='nazwa' value=body.tripName || '' )
+
+    p 
+      label Klient
+      textarea(name='klient')=body.klient || ''
+    
+    p 
+      label Data rzpoczęcia
+      textarea(name='poczatek')=body.poczatek || ''
+    
+    p 
+      label Data zakończenia
+      textarea(name='koniec')=body.koniec || ''
+    
+    p 
+      label Kierunek
+      textarea(name='kierunek')=body.kierunek || ''
+
+    p
+      input(type='submit' value='Zapisz')

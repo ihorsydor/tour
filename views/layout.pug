@@ -1,0 +1,45 @@
+doctype html
+mixin item(title, url)
+  table(class='table')
+    a(href=url class=`item ${path == url ? 'active' : ''}`)=title
+
+
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    table
+      tr
+        td 
+          +item('Strona główna', '/')
+        td
+          +item('Spis wycieczek', '/list')  
+        td
+          +item('Hotele', '/hotel')
+        td
+          +item('Przewodnicy', '/guide')
+        td
+          +item('Piloci', '/tourleader')
+        td
+          +item('Transport', '/transport')
+        td
+          +item('Restauracje', '/restaurant')
+        td
+          +item('Inne atrakcje', '/other') 
+        td
+          +item('Wysyłka zapytań', '/inquiry')  
+        td
+          +item('Zadania', '/task') 
+        td
+          +item('Przypomnienia', '/reminder')   
+        td
+          +item('Kalendarz', '/calendar')    
+        td
+          +item('Admin', '/admin') 
+     
+
+
+
+
+    block content

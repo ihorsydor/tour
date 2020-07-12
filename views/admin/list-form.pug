@@ -1,0 +1,101 @@
+extends ../layout
+
+block content
+  h1= title
+
+  if errors.errors !== undefined
+    each message in errors.errors
+      p=message
+  
+  form(method='post') 
+    p
+      label Nazwa imprezy
+      input(type='text' name='tripName' value=body.tripName || '' )
+
+    label Status imprezy
+      select
+        option zapytanie bez daty 
+        option zapytanie
+        option wstępnie potwierdzony
+        option potwierdzony
+
+    p
+      label Klient
+      input(type='text' name='client' value=body.client || '' )
+    p
+      label Kierunek
+      input(type='text' name='direction' value=body.direction || '' )
+
+    p
+      label Ilość uczestników
+      input(type='number' name='numberOfPeople' value=body.numberOfPeople || '' )
+
+    p
+      label Notatki
+      input(type='text' name='notes' value=body.notes || '' )
+
+    p
+      label Folder imprezy
+      input(type='text' name='folder' value=body.folder || '' )
+
+    p
+      label trasa
+      input(type='text' placeholder='oddziel miejscowości przecinkami' name='rout' value=body.rout || '' )
+    p Ustalenie ilości dni
+    p
+      label Początek imprezy
+      input(type='date'  id="startDate" || '' )
+    
+    p
+      label Początek imprezy
+      input(type='date'  id="endDate" || '' )
+
+    p
+
+      input(type="submit" value="ustaw" onclick="ilosc_dni()")
+
+    label Ilość dni imprezy
+      select 
+        option 1
+        option 2
+    
+
+    p
+      input(type='submit' value='Ustaw')
+
+
+    p Wybrane na poszczególne dni
+
+
+
+    p
+      label Hotel
+      input(type='text' name='hotel' value=body.hotel || '' )
+      input(type="submit" value="Dodaj" onclick="")
+    p Restauracja i godziny posiłów
+
+    p
+      label obiad
+      input(type='text' name='restaurant' value=body.restaurant || '' )
+      input(type="submit" value="Dodaj" onclick="")
+    p
+      label Kolacja
+      input(type='text' name='restaurant' value=body.restaurant || '' )  
+      input(type="submit" value="Dodaj" onclick="")
+    p
+      label Inne gastronomiczne
+      input(type='text' name='restaurant' value=body.restaurant || '' )
+      input(type="submit" value="Dodaj" onclick="")
+
+    p
+      label Przewodnik
+      input(type='text' name='guide' value=body.guide || '' )
+      input(type="submit" value="Dodaj" onclick="")
+    
+    p
+      label Inne 
+      input(type='text' name='others' value=body.others || '' )
+      input(type="submit" value="Dodaj" onclick="")
+
+    p
+      input(type='submit' value='Zapisz')

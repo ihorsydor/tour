@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+  h1= title
+  nav
+    ul
+      li
+        a(href='/admin/hotel/add') Dodaj hotel <br>
+  table
+    tr
+      th id
+      th tytuł
+      th data dodania
+      th akcja
+    each item, index in data.hotelData
+      tr 
+        td=index
+        td=item.title
+        td=item.created
+        td
+          a(href=`/admin/hotel/delete/${item._id}`) Usuń hotel
+
+
+
+  h1 Wycieczki
+  nav
+    ul
+      li
+        a(href='/admin/list/add') Dodaj wycieczkę
+
+  table
+    tr
+      th id
+      th nazwa
+      th klient
+      th kierunek
+      th akcja
+    
+
+    each item, index in data.listData
+      tr 
+        td=index
+        td=item.tripName
+        td=item.klient
+        td=item.created
+        td
+          a(href=`/admin/list/delete/${item._id}`) Usuń wycieczkę
+      
+          
+    
