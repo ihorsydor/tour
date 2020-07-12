@@ -13,24 +13,13 @@ const hotelSchema = new Schema({
     emailMain: { type: String},
     telephoneMain: { type: String }
   },
-  menager1: {
+  managers: [{
+    id: {type: String},
     name: {type: String},
     inChargeOf: {type: String},
     telephone1: { type: String },
     email1: { type: String}
-  },
-  menager2: {
-    name: {type: String},
-    inChargeOf: {type: String},
-    telephone2: { type: String },
-    email2: { type: String}
-  },
-  menager3: {
-    name: {type: String},
-    inChargeOf: {type: String},
-    telephone3: { type: String },
-    email3: { type: String}
-  },
+  }],
 
   tripName: { type: Schema.Types.ObjectId, ref: 'List' }, //daty rezerwacji i nazwy grup
   checkin: { type: Schema.Types.ObjectId, ref: 'List'},
